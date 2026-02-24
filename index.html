@@ -135,33 +135,12 @@
       letter-spacing: 0.03em;
     }
 
-    .hero-layout {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    .hero-text { flex: 1; min-width: 0; }
-    .hero-img-wrap {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-img {
-      max-height: 220px;
-      width: auto;
-      max-width: 480px;
-      object-fit: contain;
-      border-radius: 12px;
-      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.18));
-    }
-    @media (max-width: 768px) {
-      .hero-layout { flex-direction: column; gap: 16px; }
-      .hero-img { max-height: 160px; max-width: 100%; }
-    }
-    @media (max-width: 480px) {
-      .hero-img { max-height: 130px; }
-    }
+    .hero-layout { display:flex; align-items:center; gap:32px; }
+    .hero-text { flex:1; min-width:0; }
+    .hero-img-wrap { flex-shrink:0; display:flex; align-items:center; }
+    .hero-img { max-height:220px; width:auto; max-width:480px; object-fit:contain; border-radius:12px; filter:drop-shadow(0 4px 16px rgba(0,0,0,0.18)); }
+    @media (max-width:768px) { .hero-layout { flex-direction:column; gap:16px; } .hero-img { max-height:160px; max-width:100%; } }
+    @media (max-width:480px) { .hero-img { max-height:130px; } }
 
     /* ── MAIN GRID ── */
     main {
@@ -321,26 +300,34 @@
     .panel-close:hover { background: rgba(0,0,0,0.18); color: var(--gray-900); }
 
     /* ── INFO SECTION ── */
-    .info-section { border-bottom: 1.5px solid var(--yellow-mid); }
+    .info-section { border-bottom: 2px solid var(--yellow-deep); }
     .info-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 11px 20px;
+      padding: 13px 20px;
       cursor: pointer;
-      font-size: 0.83rem;
-      font-weight: 700;
-      color: var(--gray-700);
-      background: #fffdf0;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      background: var(--yellow);
       transition: background 0.15s;
       user-select: none;
+      letter-spacing: 0.01em;
+      border-top: 1.5px solid var(--yellow-deep);
     }
-    .info-header:hover { background: var(--yellow-mid); }
-    .info-arrow { font-size: 0.75rem; font-weight: 700; color: var(--gray-500); }
+    .info-header:hover { background: var(--yellow-deep); color: white; }
+    .info-header:hover .info-arrow { color: white; }
+    .info-arrow {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--gray-700);
+      transition: transform 0.2s;
+    }
     .info-body {
       display: none;
-      padding: 4px 20px 16px;
-      background: #fffdf0;
+      padding: 6px 20px 18px;
+      background: var(--yellow-pale);
       border-top: 1px solid var(--yellow-mid);
     }
     .info-body.open { display: block; }
@@ -819,6 +806,7 @@ const ACTIVIDADES_INICIALES = [
   { id: "act_010", metodologiaId: 4, tipo: "Apertura del aula", nombre: "Apertura del aula a profesionales sanitarios", asignatura: "Psicología — Grado en Medicina; Logopedia; Nutrición Humana y Dietética", formato: "Proyecto de innovación docente", descripcion: "Entrevista a un profesional sanitario en grupos reducidos. Aprendizaje mediante preguntas, análisis temático y puesta en común.", profesor: "Natalia Jimeno Bulnes" },
   { id: "act_011", metodologiaId: 4, tipo: "Apertura del aula", nombre: "Apertura del aula a pacientes reales", asignatura: "Patología médico quirúrgica del aparato locomotor — Grado de Medicina", formato: "Experiencia en aula", descripcion: "Seminario con pacientes con enfermedades autoinmunes sistémicas complejas. Los pacientes cuentan sus experiencias vitales y los alumnos pueden interactuar.", profesor: "Luis Corral Gudino" },
   { id: "act_012", metodologiaId: 5, tipo: "Sensibilización", nombre: "Sensibilización en exclusión social y arte", asignatura: "Oftalmología — Grado de Medicina; Baja visión — Grado de Óptica y Optometría", formato: "Proyecto de innovación docente", descripcion: "Sensibilización sobre grupos de riesgo de exclusión social utilizando el arte como vehículo para la reflexión. Especial atención a pacientes con discapacidad visual.", profesor: "Rosa María Coco Martín" },
+  { id: "act_014", metodologiaId: 4, tipo: "Aula invertida", nombre: "Aula invertida — Neurofisiología", asignatura: "Fisiología humana II — 2º curso del Grado de Medicina", formato: "PID / Experiencia en aula", descripcion: "Los alumnos tienen acceso a una guía de estudio impresa (publicada por EdUVa) para estudio antes de asistir a clase. En el aula se realiza: resolución de dudas; discusión de conceptos mediante metodología TPS (think-pair-share); conexiones clínicas expuestas por alumnos; identificación de conceptos fundamentales.", profesor: "Lola Ganfornina Álvarez y Diego Sánchez Romero" },
   { id: "act_013", metodologiaId: 7, tipo: "Aprendizaje-servicio intergeneracional", nombre: "El Recetario de la Abuela", asignatura: "Dietética — Grado en Nutrición Humana y Dietética", formato: "Proyecto de innovación docente", descripcion: "Actividad de aprendizaje-servicio con enfoque intergeneracional desarrollada en colaboración con la Asociación de Afrontamiento Activo del Dolor – Miguel Ángel Galán (Valladolid). Permite desarrollar competencias de análisis y planificación dietética e intercambiar saberes generacionales.", profesor: "Sandra de la Cruz Marcos" }
 ];
 
