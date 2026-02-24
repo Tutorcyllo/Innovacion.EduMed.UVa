@@ -477,74 +477,6 @@
     }
     .herramienta-desc.open { display: block; }
 
-    /* ── MODAL ── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 200;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      backdrop-filter: blur(2px);
-    }
-    .modal-overlay.open { display: flex; }
-    .modal {
-      background: white;
-      border-radius: 16px;
-      width: 100%;
-      max-width: 540px;
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-      animation: slideDown 0.2s ease;
-    }
-    .modal-header {
-      background: var(--yellow);
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1.5px solid var(--yellow-deep);
-    }
-    .modal-header h3 { font-size: 1rem; font-weight: 800; }
-    .modal-body { padding: 20px; max-height: 70vh; overflow-y: auto; }
-    .modal-footer {
-      padding: 14px 20px;
-      border-top: 1.5px solid var(--gray-200);
-      display: flex;
-      justify-content: flex-end;
-      gap: 8px;
-      background: var(--gray-50);
-    }
-    .form-group { margin-bottom: 14px; }
-    .form-group label {
-      display: block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--gray-700);
-      margin-bottom: 5px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 9px 12px;
-      border: 1.5px solid var(--gray-200);
-      border-radius: 8px;
-      font-family: 'Figtree', sans-serif;
-      font-size: 0.85rem;
-      color: var(--gray-900);
-      outline: none;
-      transition: border-color 0.15s;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--yellow-deep); }
-    .form-group textarea { resize: vertical; min-height: 90px; }
-
     /* ── TOAST ── */
     .toast {
       position: fixed;
@@ -644,31 +576,15 @@
   <div class="metodologias-grid" id="metodologiasGrid"></div>
 </main>
 
-    <div class="modal-body">
-      <div class="form-group">
-        <label>Metodología</label>
-        <select id="formMetodologia"></select>
-      </div>
-      <div class="form-group">
-        <label>Tipo / Categoría</label>
-        <input type="text" id="formTipo" placeholder="Ej: Aula invertida, Gamificación...">
-      </div>
-      <div class="form-group">
-        <label>Nombre de la actividad *</label>
-        <input type="text" id="formNombre" placeholder="Nombre descriptivo">
-      </div>
-      <div class="form-group">
-        <label>Asignatura(s)</label>
-        <input type="text" id="formAsignatura" placeholder="Asignatura — Grado">
-      </div>
-      <div class="form-group">
 <div class="toast" id="toast"></div>
 
 <footer>
   <strong>EduMed UVa</strong> · Unidad de Educación Médica · Facultad de Medicina · Universidad de Valladolid · 2026
-  &nbsp;·&nbsp; Contacto: <a href="/cdn-cgi/l/email-protection#b8d4cdd1cb96dbd7cacad9d4f8cdced996ddcb"><span class="__cf_email__" data-cfemail="e68a938f95c885899494878aa6939087c88395">[email&#160;protected]</span></a>
-  &nbsp;·&nbsp; <strong>TutorCyLlo</strong>
+  <br>
+  Contacto: <a href="mailto:luis.corral@uva.es">luis.corral@uva.es</a> · <strong>TutorCyLo</strong>
 </footer>
+
+
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─── DATOS ─────────────────────────────────────────────────────────────────────
