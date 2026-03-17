@@ -685,7 +685,9 @@ function parseCSV(text) {
 async function loadData() {
   try {
     var cacheBuster = '&_t=' + Date.now();
+    console.log('EduMed: fetching', CSV_URL_DIRECT + cacheBuster);
     var res = await fetch(CSV_URL_DIRECT + cacheBuster);
+    console.log('EduMed: response status', res.status, res.ok);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     // Forzar decodificación UTF-8 explícita para preservar tildes y caracteres españoles
     var buffer = await res.arrayBuffer();
@@ -792,7 +794,8 @@ async function loadData() {
   } catch(e) {
     console.warn('loadData error:', e);
     actividades = [];
-    showToast('⚠ Sin conexión con Google Sheets');
+    showToast('⚠ Error: ' + e.message);
+    console.error('EduMed loadData error:', e);
   }
   renderAll();
 }
