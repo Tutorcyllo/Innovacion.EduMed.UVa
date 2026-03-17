@@ -649,10 +649,7 @@ const ACTIVIDADES_INICIALES = [];
 const SHEET_ID = '1ir83nasRx8l78bVaV-__7oWvvVU8QwNJqYLm7Z7gJ8M';
 const SHEET_NAME = 'Actividades';
 const CSV_URL_DIRECT = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQS7VcqwHCkA8b6WhsGSNv2QPNL_iY3pGzbwVZwb5dNniEcKLr2i651p-dQrSvnDutP71B8IvLfPdre/pub?gid=1929212327&single=true&output=csv';
-const CORS_PROXIES = [
-  'https://api.allorigins.win/raw?url=',
-  'https://corsproxy.io/?'
-];
+// Sin proxy — GitHub Pages permite fetch directo a Google Sheets
 
 
 // ─── ESTADO ─────────────────────────────────────────────────────────────────────
@@ -688,18 +685,8 @@ function parseCSV(text) {
 async function loadData() {
   try {
     var cacheBuster = '&_t=' + Date.now();
-    var targetUrl = CSV_URL_DIRECT + cacheBuster;
-    var res = null;
-    var lastError = '';
-    for (var pi = 0; pi < CORS_PROXIES.length; pi++) {
-      try {
-        console.log('EduMed: proxy ' + (pi+1) + ' - ' + CORS_PROXIES[pi]);
-        var r = await fetch(CORS_PROXIES[pi] + encodeURIComponent(targetUrl));
-        if (r.ok) { res = r; break; }
-        lastError = 'HTTP ' + r.status;
-      } catch(e) { lastError = e.message; }
-    }
-    if (!res) throw new Error('Sin conexión: ' + lastError);
+    var res = await fetch(CSV_URL_DIRECT + cacheBuster);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     // Forzar decodificación UTF-8 explícita para preservar tildes y caracteres españoles
     var buffer = await res.arrayBuffer();
     var text = new TextDecoder('utf-8').decode(buffer);
